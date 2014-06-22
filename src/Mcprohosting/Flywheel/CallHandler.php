@@ -2,7 +2,7 @@
 
 namespace Mcprohosting\Flywheel;
 
-use Illuminate\Cache\StoreInterface;
+use Illuminate\Cache\CacheManager;
 
 class CallHandler
 {
@@ -15,7 +15,7 @@ class CallHandler
 
     protected $data = array();
 
-    public function __construct(StoreInterface $cache)
+    public function __construct(CacheManager $cache)
     {
         $this->cache = $cache;
     }
@@ -76,4 +76,4 @@ class CallHandler
 
         return $this;
     }
-} 
+}
