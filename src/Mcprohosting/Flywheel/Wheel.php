@@ -65,10 +65,10 @@ class Wheel
     public function spin()
     {
         $calls = $this->handler->getCalls($this->name, $this->interval);
+
         $levels = array_keys($this->levels);
 
-        end($levels);
-        while ($l = prev($levels)) {
+        while (isset($l) ? $l = prev($levels) : $l = end($levels)) {
             if ($calls >= $l) {
                 return $this->apply($l, func_get_args());
             }
@@ -90,4 +90,4 @@ class Wheel
 
         return call_user_func_array($this->levels[$level], $args);
     }
-} 
+}

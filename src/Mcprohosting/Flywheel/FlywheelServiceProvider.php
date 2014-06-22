@@ -20,8 +20,6 @@ class FlywheelServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->registerPresenceVerifier();
-
         $this->app->bind('flywheel', function($app) {
             return new Factory(new CallHandler($app['cache']));
         });
